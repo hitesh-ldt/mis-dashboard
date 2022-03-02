@@ -1,30 +1,31 @@
 <div>
-    <mat-form-field appearance="fill">
-        <mat-label>Entity Type</mat-label>
-        <select matNativeControl required (change)="changedepartment($event)">
-            <option value="" disabled>select type</option>
-            <option [value]="85">Merchant</option>
-            <option [value]="20">Consumer</option>
-            <!-- <option [value]="item.categoryYear" *ngFor="let item of dataSource">{{item.entityType | json}}</option> -->
-        </select>
-    </mat-form-field>
-    <mat-form-field style="margin-left: 15px;" appearance="fill">
-        <mat-label>Select Year</mat-label>
-        <select matNativeControl required>
-            <option value="" disabled>select Year</option>
-            <option>2012</option>
-            <option>2022</option>
-        </select>
-    </mat-form-field>
+   <form [formGroup]="dropdown" (ngSubmit)="getdata()" >
+    <label for="name">search </label><br>
+    <select class="form-control" formControlName = "entityType">
+       <option value="85"> consumer</option>
+       <option value="20"> merchant</option>
+   </select>
+   <select class="form-control" formControlName = "startYear">
+    <option value="2020-01-01"> 2021</option>
+</select>
+<select class="form-control" formControlName = "endYear">
+    <option value="2022-01-01"> 2022</option>
+</select>
+
+
+       
+  
+    <button class="submit-btn"  mat-raised-button color="primary" type="submit"
+         style="margin-top: 10px;"> submit</button>
+    
+   </form>
     <br>
-    <li>
-        selected:{{selectedvalue}}
-    </li>
+   
 </div>
 <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
     <div fxFlex="100">
         <div class="mat-elevation-z8">
-            <table class="dark" mat-table [dataSource]="dataSource">
+            <table class="dark" mat-table [dataSource]="datalist">
                 <ng-container matColumnDef="categoryId">
                     <th mat-header-cell *matHeaderCellDef> CategoryID </th>
                     <td mat-cell *matCellDef="let element"> {{element.categoryId}} </td>
@@ -35,7 +36,7 @@
                 </ng-container>
                 <ng-container matColumnDef="categoryName">
                     <th mat-header-cell *matHeaderCellDef> CategoryName </th>
-                    <td mat-cell *matCellDef="let element"> {{element.categoryGMV}} </td>
+                    <td mat-cell *matCellDef="let element"> {{element.categoryGMV }} </td>
                 </ng-container>
                 <ng-container matColumnDef="categoryYear">
                     <th mat-header-cell *matHeaderCellDef> CategoryYear </th>

@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
   }
+ 
   contactForm = new FormGroup({
     name: new FormControl('', [Validators.required, Validators.pattern('[a-zA-Z ]*')]),
     phoneno: new FormControl("", [Validators.required, Validators.pattern("[0-9 ]{10}")]),
