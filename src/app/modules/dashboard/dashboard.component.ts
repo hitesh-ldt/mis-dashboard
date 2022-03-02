@@ -24,20 +24,17 @@ export class DashboardComponent implements OnInit {
   pieChart = [];
   array: any = [];
   displayedColumns: string[] = ['categoryId', 'entityType', 'categoryName', 'categoryYear', 'categoryTransactionCount'];
-  dataSource=new MatTableDataSource(this.array)
- 
-  filteredstring:string='';
-temparray:any=[]
+  dataSource = new MatTableDataSource(this.array)
+
+  filteredstring: string = '';
+  temparray: any = []
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  selectedvalue:any=[];
-  changedepartment(e:any){
+  selectedvalue: any = [];
+  changedepartment(e: any) {
     console.log(e.target.value)
-    this.selectedvalue=e.target.value
+    this.selectedvalue = e.target.value
     // console.log(this.selectedvalue);
     // this.dataSource.filter=e.trim().toLocaleLowerCase
-    
-    
-    
   }
   constructor(private dashboardService: DashboardService) { }
   ngOnInit() {
@@ -50,17 +47,15 @@ temparray:any=[]
   getapidata() {
     this.loading = false;
     this.dashboardService.getdata().subscribe((data: any) => {
+      
       this.loading = false;
       console.log(data);
       this.dataSource = data
       console.log(this.dataSource)
-      this.array = data
+      this.array = data.body
       this.resultsLength = this.array.length
       this.dataSource = new MatTableDataSource<any>(this.array)
       this.dataSource.paginator = this.paginator
-
     })
   }
- 
-
 }

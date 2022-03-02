@@ -6,16 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DashboardService {
-  url="https://jsonplaceholder.typicode.com/posts";
+  url="https://mis.nownowpay.com.ng/mis/getCategoryByEntityTypeAndYear?entityType=85&startYear=2020-01-01&endYear=2023-01-22";
   public postsData:PeriodicElement[]
   constructor(private http:HttpClient) {}
 getdata(){
-  return this.http.get<PeriodicElement[]>(this.url);
+  return this.http.get(this.url);
 }
-getdatabyparam(selectedAlbumid:string):Observable<any>{
-  let params1=new HttpParams().set('albumid',selectedAlbumid)
-  return this.http.get("https://jsonplaceholder.typicode.com/posts",{params:params1});
-}
+
   bigChart() {
     return [{
       name: 'Asia',
