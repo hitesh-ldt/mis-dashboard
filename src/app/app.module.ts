@@ -10,6 +10,7 @@ import { LoginComponent } from './modules/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule, MatFormFieldModule, MatButtonModule, MatSelectModule ,MatChipsModule,MatAutocompleteModule,MatIconModule} from '@angular/material';
 import { DashboardService } from './modules/dashboard.service';
+
 @NgModule({
   declarations: [
     AppComponent,

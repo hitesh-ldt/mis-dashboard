@@ -15,6 +15,7 @@ import { PieComponent } from './widgets/pie/pie.component';
 import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterPipe } from '../filter.pipe';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { FilterPipe } from '../filter.pipe';
     MatFormFieldModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule,MatProgressSpinnerModule
+    ReactiveFormsModule,MatProgressSpinnerModule,
+    MatSelectModule
     
   ],
   exports: [
@@ -58,7 +60,9 @@ import { FilterPipe } from '../filter.pipe';
     MatFormFieldModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule,MatProgressSpinnerModule
+    ReactiveFormsModule,MatProgressSpinnerModule,
+    MatSelectModule,
+    MatButtonModule
     
   ]
 })
