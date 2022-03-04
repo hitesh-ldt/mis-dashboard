@@ -1,14 +1,13 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { MatTableDataSource, MatPaginator } from '@angular/material';
 import { DashboardService } from '../dashboard.service';
 
 @Component({
-  selector: 'app-posts',
-  templateUrl: './posts.component.html',
-  styleUrls: ['./posts.component.scss']
+  selector: 'app-gmvcount',
+  templateUrl: './gmvcount.component.html',
+  styleUrls: ['./gmvcount.component.scss']
 })
-export class PostsComponent implements OnInit {
+export class GmvcountComponent implements OnInit {
   displayedColumns = ['count','category','jan',
   'feb', 
   // 'mar', 
@@ -23,8 +22,7 @@ export class PostsComponent implements OnInit {
   // 'dec', 
   //  'total'
 ];
-  
-  startYear: any = [{ year: "2012", value: "2012-01-01" },
+startYear: any = [{ year: "2012", value: "2012-01-01" },
   { year: "2013", value: "2013-01-01" },
   { year: "2014", value: "2014-01-01" },
   { year: "2015", value: "2015-01-01" },
@@ -40,13 +38,10 @@ export class PostsComponent implements OnInit {
     entityType: new FormControl(""),
     startYear: new FormControl(""),
   })
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   datalist: any;
   dataToShow: any = [];
   categoryNamelist: any;
 
-  /** Gets the total cost of all transactions. */
- 
   constructor(private dashboardService: DashboardService) { }
 
   ngOnInit() {
@@ -67,9 +62,12 @@ export class PostsComponent implements OnInit {
         for(let i =0;i<categoryMonthly.length;i++)
           this.dataToShow.push({
             entityType: this.datalist[0].entityType,
-            category: categoryMonthly[i]
-          });
-        // console.log(data.body[0].categoryCountByMonth);
+            category: categoryMonthly[i],
+            count:this.datalist[0].categoryCount
+          }
+          );
+          console.log(this.dataToShow);
+          
         
         this.categoryNamelist= Object.keys(data.body[0].categoryCountByMonth)
         console.log(this.categoryNamelist);
