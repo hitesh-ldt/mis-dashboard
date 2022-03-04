@@ -6,11 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class DashboardService {
-  url="https://mis.nownowpay.com.ng/mis/getCategoryByEntityTypeAndYear?entityType=85&startYear=2020-01-01&endYear=2023-01-22";
-  public postsData:PeriodicElement[]
+  
   constructor(private http:HttpClient) {}
 getdata(data){
   let url=`https://mis.nownowpay.com.ng/mis/getCategoryByEntityTypeAndYear?entityType=${data.entityType}&startYear=${data.startYear}&endYear=${data.endYear}`
+  return this.http.get(url);
+}
+getdatamonth(data){
+  let url=`https://mis.nownowpay.com.ng/mis/findByEntityTypeAndMonth?startYear=${data.startYear}&entityType=${data.entityType}`
   return this.http.get(url);
 }
 

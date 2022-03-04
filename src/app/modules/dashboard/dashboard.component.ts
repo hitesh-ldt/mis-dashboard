@@ -6,13 +6,14 @@ export interface PeriodicElement {
   categoryId: number;
   categoryYear: string;
   categoryTransactionCount: number;
-
 }
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
+
 export class DashboardComponent implements OnInit {
   bigChart = [];
   loading = false;
@@ -48,17 +49,9 @@ export class DashboardComponent implements OnInit {
   { year: "2022", value: "2022-01-01" },
   ];
 
-  filteredstring: string = '';
-  temparray: any = []
   @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
-  selectedvalue: any = [];
   datalist: any;
-  changedepartment(e: any) {
-    console.log(e.target.value)
-    this.selectedvalue = e.target.value
-    // console.log(this.selectedvalue);
-    // this.dataSource.filter=e.trim().toLocaleLowerCase
-  }
+
   constructor(private dashboardService: DashboardService) { }
   dropdown = new FormGroup({
     entityType: new FormControl(""),
@@ -69,7 +62,6 @@ export class DashboardComponent implements OnInit {
     this.bigChart = this.dashboardService.bigChart();
     this.cards = this.dashboardService.cards();
     this.pieChart = this.dashboardService.pieChart();
-    this.dataSource.paginator = this.paginator;
     // this.getapidata()
   }
   // getapidata() {
@@ -87,20 +79,22 @@ export class DashboardComponent implements OnInit {
   //   })
   // }
   getdata() {
-    console.log("+++");
     let req: any = {
       'entityType': this.dropdown.controls['entityType'].value,
       'startYear': this.dropdown.controls['startYear'].value,
       'endYear': this.dropdown.controls['endYear'].value,
     }
     console.log(req);
+    this.loading = true;
     this.dashboardService.getdata(req).subscribe((data: any) => {
-      console.log(data)
+    console.log(data)
+    this.loading = false;
+
       if (data.statusCode == 200) {
         let res = data.body
         this.datalist = res
       }
-    
+
 
       // this.dropdown.reset()
 

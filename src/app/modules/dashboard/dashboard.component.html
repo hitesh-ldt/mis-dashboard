@@ -13,7 +13,7 @@
             <mat-label for="name">StartYear </mat-label>
             <mat-select class="form-control" formControlName="startYear" required>
                 <mat-option value="" disabled> select Date </mat-option>
-                <mat-option *ngFor="let item of startYear" value="{{item.value}}"> {{item.year}}</mat-option>
+                <mat-option *ngFor="let item of startYear" value="{{item.year}}"> {{item.year}}</mat-option>
 
             </mat-select>
         </mat-form-field>
@@ -22,7 +22,7 @@
             <mat-select class="form-control" formControlName="endYear" required>
                 <mat-option value="" disabled> select Date </mat-option>
                 <!-- <mat-option value="2022-01-01"> 2022</mat-option> -->
-                <mat-option *ngFor="let item of endYear" value="{{item.value}}"> {{item.year}}</mat-option>
+                <mat-option *ngFor="let item of endYear" value="{{item.year}}"> {{item.year}}</mat-option>
 
             </mat-select>
         </mat-form-field>

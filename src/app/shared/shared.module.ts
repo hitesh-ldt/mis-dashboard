@@ -16,6 +16,8 @@ import {FormsModule,ReactiveFormsModule} from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FilterPipe } from '../filter.pipe';
 import {MatSelectModule} from '@angular/material/select';
+import {MatPaginatorModule} from '@angular/material/paginator';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +47,8 @@ import {MatSelectModule} from '@angular/material/select';
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,MatProgressSpinnerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatPaginatorModule
     
   ],
   exports: [
@@ -62,7 +65,10 @@ import {MatSelectModule} from '@angular/material/select';
     FormsModule,
     ReactiveFormsModule,MatProgressSpinnerModule,
     MatSelectModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDividerModule,
+    MatToolbarModule,
+    MatPaginatorModule
     
   ]
 })

@@ -10,6 +10,9 @@ import { LoginComponent } from './modules/login/login.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MatInputModule, MatFormFieldModule, MatButtonModule, MatSelectModule ,MatChipsModule,MatAutocompleteModule,MatIconModule} from '@angular/material';
 import { DashboardService } from './modules/dashboard.service';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { DashboardService } from './modules/dashboard.service';
     MatProgressSpinnerModule,
     MatChipsModule,
     MatAutocompleteModule ,
-    MatIconModule
+    MatIconModule,
+    MatDividerModule,
+    MatToolbarModule,
+    MatPaginatorModule
   ],
   providers: [DashboardService],
   bootstrap: [AppComponent]
