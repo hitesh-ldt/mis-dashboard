@@ -1,5 +1,5 @@
 <div class="select">
-   
+
     <form [formGroup]="dropdown" (ngSubmit)="getdata()">
         <mat-form-field>
             <mat-label for="name">Select EntityType </mat-label>
@@ -21,62 +21,32 @@
             <mat-label for="name">EndYear </mat-label>
             <mat-select class="form-control" formControlName="endYear" required>
                 <mat-option value="" disabled> select Date </mat-option>
-                <!-- <mat-option value="2022-01-01"> 2022</mat-option> -->
                 <mat-option *ngFor="let item of endYear" value="{{item.year}}"> {{item.year}}</mat-option>
 
             </mat-select>
         </mat-form-field>
-        <button mat-raised-button color="primary" class="submit-btn" type="submit" style="margin-left: 10px;" >
+        <button mat-raised-button color="primary" class="submit-btn" type="submit" style="margin-left: 10px;">
             submit</button>
 
     </form>
 </div>
 
-<!-- <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
-    <div fxFlex="100">
-        <div class="mat-elevation-z8">
-            <table class="dark" mat-table [dataSource]="datalist">
-                <ng-container matColumnDef="categoryId">
-                    <th mat-header-cell *matHeaderCellDef> CategoryID </th>
-                    <td mat-cell *matCellDef="let element"> {{element.categoryId}} </td>
-                </ng-container>
-                <ng-container matColumnDef="entityType">
-                    <th mat-header-cell *matHeaderCellDef> EntityType </th>
-                    <td mat-cell *matCellDef="let element"> {{element.entityType}} </td>
-                </ng-container>
-             
-                <ng-container matColumnDef="categoryYear">
-                    <th mat-header-cell *matHeaderCellDef> CategoryYear </th>
-                    <td mat-cell *matCellDef="let element"> {{element.categoryYear}} </td>
-                </ng-container>
-                <ng-container matColumnDef="categoryTransactionCount">
-                    <th mat-header-cell *matHeaderCellDef> TransactionCount </th>
-                    <td mat-cell *matCellDef="let element"> {{element.categoryTransactionCount | json}} </td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-            <mat-spinner class="app-loader" *ngIf="loading"></mat-spinner>
-            <mat-paginator [pageSizeOptions]="[10, 15, 20]"></mat-paginator>
-        </div>
-    </div>
-</div> -->
 <table id="customers" class="table table-striped">
     <thead>
-      <tr>
-        <th scope="col">CategoryId</th>
-        <th scope="col">EntityType</th>
-        <th scope="col">CategoryYear</th>
-        <th scope="col">TransactionCount</th>
-        
-      </tr>
+        <tr>
+            <th scope="col">CategoryId</th>
+            <th scope="col">EntityType</th>
+            <th scope="col">CategoryYear</th>
+            <th scope="col">TransactionCount</th>
+
+        </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of datalist">
-        <td>{{item.categoryId}}</td>
-        <td>{{item.entityType}}</td>
-        <td>{{item.categoryYear}}</td>
-        <td>{{item.categoryTransactionCount | json}}</td>
-      </tr>
+        <tr *ngFor="let item of datalist">
+            <td>{{item.categoryId}}</td>
+            <td>{{item.entityType == 85 ? "Consumer" : "Merchant"}}</td>
+            <td>{{item.categoryYear}}</td>
+            <td>{{item.categoryTransactionCount | json}}</td>
+        </tr>
     </tbody>
-  </table>
+</table>

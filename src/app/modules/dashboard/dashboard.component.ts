@@ -15,14 +15,11 @@ export interface PeriodicElement {
 })
 
 export class DashboardComponent implements OnInit {
-  bigChart = [];
   loading = false;
   searchvalue: string;
   resultsLength = 0;
   cards = [];
-  pieChart = [];
   array: any = [];
-  displayedColumns: string[] = ['categoryId', 'entityType', 'categoryYear', 'categoryTransactionCount'];
   dataSource = new MatTableDataSource(this.array)
   startYear: any = [{ year: "2012", value: "2012-01-01" },
   { year: "2013", value: "2013-01-01" },
@@ -49,7 +46,6 @@ export class DashboardComponent implements OnInit {
   { year: "2022", value: "2022-01-01" },
   ];
 
-  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
   datalist: any;
 
   constructor(private dashboardService: DashboardService) { }
@@ -59,25 +55,8 @@ export class DashboardComponent implements OnInit {
     endYear: new FormControl(""),
   })
   ngOnInit() {
-    this.bigChart = this.dashboardService.bigChart();
-    this.cards = this.dashboardService.cards();
-    this.pieChart = this.dashboardService.pieChart();
-    // this.getapidata()
   }
-  // getapidata() {
-  //   this.loading = false;
-  //   this.dashboardService.getdata().subscribe((data: any) => {
-
-  //     this.loading = false;
-  //     console.log(data);
-  //     this.dataSource = data.body
-  //     console.log(this.dataSource)
-  //     this.array = data.body
-  //     this.resultsLength = this.array.length
-  //     this.dataSource = new MatTableDataSource<any>(this.array)
-  //     this.dataSource.paginator = this.paginator
-  //   })
-  // }
+ 
   getdata() {
     let req: any = {
       'entityType': this.dropdown.controls['entityType'].value,
@@ -94,10 +73,6 @@ export class DashboardComponent implements OnInit {
         let res = data.body
         this.datalist = res
       }
-
-
-      // this.dropdown.reset()
-
     })
 
   }

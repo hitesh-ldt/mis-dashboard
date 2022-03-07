@@ -8,8 +8,6 @@ import { DashboardService } from '../dashboard.service';
   styleUrls: ['./incomesheet.component.scss']
 })
 export class IncomesheetComponent implements OnInit {
-  displayedColumns = ['particulars','Count'
-];
 startYear: any = [{ year: "2012", value: "2012-01-01" },
   { year: "2013", value: "2013-01-01" },
   { year: "2014", value: "2014-01-01" },
@@ -42,6 +40,7 @@ startYear: any = [{ year: "2012", value: "2012-01-01" },
   datalist: any;
   dataToShow: any = [];
   categoryNamelist: any;
+  categoryName: string[];
 
   constructor(private dashboardService: DashboardService) { }
 
@@ -55,17 +54,31 @@ startYear: any = [{ year: "2012", value: "2012-01-01" },
     console.log(req);
     this.dashboardService.getdataincome(req).subscribe((data: any) => {
       console.log(data)
+      this.datalist = data.body
+      console.log(this.datalist[0])
   
         if (data.statusCode == 200) {
           let res = data.body
           this.datalist = res
+          this.categoryName = Object.keys(this.datalist[0]);
+          console.log(this.categoryName);
+          
+          for (let i = 0; i < this.categoryName.length; i++) {
+            const element = this.categoryName[i];
+            let objCount = {
+              particulars: element,
+              count: this.getMonthValue(element),
+              }
+            this.dataToShow.push(objCount);
+          }
+          console.log(this.dataToShow);
+          
         }
-  
-  
-        // this.dropdown.reset()
-  
       })
   
     }
-      
-}
+  
+    getMonthValue(category): any {
+      return this.datalist[0][category];
+    }
+  }

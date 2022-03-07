@@ -16,170 +16,53 @@
 
             </mat-select>
         </mat-form-field>
-        
-        <button mat-raised-button color="primary" class="submit-btn" type="submit" style="margin-left: 10px;" >
+
+        <button mat-raised-button color="primary" class="submit-btn" type="submit" style="margin-left: 10px;">
             submit</button>
 
     </form>
 </div>
-    <mat-toolbar class="toolbar" color="primary">
-      <span style="margin-left: 40%;"> Transaction Count </span>
-    </mat-toolbar>
-<!-- <div class="example-container mat-elevation-z8">
-    <table class="dark" mat-table [dataSource]="dataToShow">
+<mat-toolbar class="toolbar" color="primary">
+    <span style="margin-left: 40%;"> Transaction Count </span>
+</mat-toolbar>
 
-        <ng-container matColumnDef="count">
-            <th mat-header-cell *matHeaderCellDef> count </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.entityType}} </td>
-            <td mat-footer-cell *matFooterCellDef> Total </td>
-        </ng-container>
-        <mat-divider [vertical]="true"></mat-divider>
-        <ng-container matColumnDef="category">
-            <th mat-header-cell *matHeaderCellDef> category </th>
-            <td mat-cell *ngFor="let transaction"> {{transaction.category}} </td>
-            <td mat-footer-cell *matFooterCellDef>  </td>
-        </ng-container>
-        <mat-divider [vertical]="true"></mat-divider>
-
-
-        <ng-container matColumnDef="jan">
-            <th mat-header-cell *matHeaderCellDef> jan </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.jan}} </td>
-            <td mat-footer-cell *matFooterCellDef>  </td>
-        </ng-container>
-        <ng-container matColumnDef="feb">
-            <th mat-header-cell *matHeaderCellDef> feb </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.feb}} </td>
-            <td mat-footer-cell *matFooterCellDef>  </td>
-        </ng-container>
-        <ng-container matColumnDef="mar">
-            <th mat-header-cell *matHeaderCellDef> mar </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.mar}} </td>
-            <td mat-footer-cell *matFooterCellDef>  </td>
-        </ng-container>
-        <ng-container matColumnDef="apr">
-            <th mat-header-cell *matHeaderCellDef> apr </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.apr}} </td>
-            <td mat-footer-cell *matFooterCellDef>  </td>
-        </ng-container>
-        <ng-container matColumnDef="may">
-            <th mat-header-cell *matHeaderCellDef> may </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.may}} </td>
-            <td mat-footer-cell *matFooterCellDef>  </td>
-        </ng-container>
-        <ng-container matColumnDef="jun">
-            <th mat-header-cell *matHeaderCellDef> jun </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.jun}} </td>
-            <td mat-footer-cell *matFooterCellDef>  </td>
-        </ng-container>
-        <ng-container matColumnDef="jul">
-            <th mat-header-cell *matHeaderCellDef> jul </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.jul}} </td>
-            <td mat-footer-cell *matFooterCellDef>  </td>
-        </ng-container>
-        <ng-container matColumnDef="aug">
-            <th mat-header-cell *matHeaderCellDef> aug </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.aug}} </td>
-            <td mat-footer-cell *matFooterCellDef>  </td>
-        </ng-container>
-        <ng-container matColumnDef="sep">
-            <th mat-header-cell *matHeaderCellDef> sep </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.sep}} </td>
-            <td mat-footer-cell *matFooterCellDef>  </td>
-        </ng-container>
-        <ng-container matColumnDef="oct">
-            <th mat-header-cell *matHeaderCellDef> oct </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.oct}} </td>
-            <td mat-footer-cell *matFooterCellDef>  </td>
-        </ng-container>
-        <ng-container matColumnDef="nov">
-            <th mat-header-cell *matHeaderCellDef> nov </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.nov}} </td>
-            <td mat-footer-cell *matFooterCellDef>  </td>
-        </ng-container>
-        <ng-container matColumnDef="dec">
-            <th mat-header-cell *matHeaderCellDef> dec </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.dec}} </td>
-            <td mat-footer-cell *matFooterCellDef>  </td>
-        </ng-container>
-
-        <ng-container matColumnDef="total">
-            <th mat-header-cell *matHeaderCellDef> total </th>
-            <td mat-cell *matCellDef="let transaction"> {{transaction.total | currency}} </td>
-            <td mat-footer-cell *matFooterCellDef> {{getTotalCost() | currency}} </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-        <tr mat-footer-row *matFooterRowDef="displayedColumns;"></tr>
-        <mat-paginator  [pageSizeOptions]="[5, 10, 25, 100]"  aria-label="Select page">
-</mat-paginator>
-        <mat-paginator [pageSizeOptions]="[10, 15, 20]"></mat-paginator>
-    </table>
-</div> -->
-<!-- <div fxLayout="row" fxLayoutAlign="space-between center" fxLayoutGap="20px">
-    <div fxFlex="100">
-        <div class="mat-elevation-z8">
-            <table class="dark" mat-table [dataSource]="dataToShow">
-                <ng-container matColumnDef="count">
-                    <th mat-header-cell *matHeaderCellDef> CategoryID </th>
-                    <td mat-cell *matCellDef="let item"> {{item.entityType}} </td>
-                </ng-container>
-                <ng-container matColumnDef="category">
-                    <th mat-header-cell *matHeaderCellDef> EntityType </th>
-                    <td mat-cell *matCellDef="let element"> {{element.category}} </td>
-                </ng-container>
-               
-                <ng-container matColumnDef="jan">
-                    <th mat-header-cell *matHeaderCellDef> CategoryYear </th>
-                    <td mat-cell *matCellDef="let element">  </td>
-                </ng-container>
-                <ng-container matColumnDef="feb">
-                    <th mat-header-cell *matHeaderCellDef> TransactionCount </th>
-                    <td mat-cell *matCellDef="let element"></td>
-                </ng-container>
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-          
-        </div>
-    </div>
-</div> -->
 <table id="customers" class="table table-striped">
     <thead>
-      <tr>
-        <th scope="col">Type</th>
-        <th scope="col">category</th>
-        <th scope="col">jan</th>
-        <th scope="col">feb</th>
-        <th scope="col">mar</th>
-        <th scope="col">apr</th>
-        <th scope="col">may</th>
-        <th scope="col">jun</th>
-        <th scope="col">jul</th>
-        <th scope="col">aug</th>
-        <th scope="col">sep</th>
-        <th scope="col">oct</th>
-        <th scope="col">nov</th>
-        <th scope="col">dec</th>
-      </tr>
+        <tr>
+            <th scope="col">Type</th>
+            <th scope="col">category</th>
+            <th scope="col">jan</th>
+            <th scope="col">feb</th>
+            <th scope="col">mar</th>
+            <th scope="col">apr</th>
+            <th scope="col">may</th>
+            <th scope="col">jun</th>
+            <th scope="col">jul</th>
+            <th scope="col">aug</th>
+            <th scope="col">sep</th>
+            <th scope="col">oct</th>
+            <th scope="col">nov</th>
+            <th scope="col">dec</th>
+        </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let item of dataToShow">
-        <td>{{item.entityType}}</td>
-        <td>{{item.category}}</td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+        <tr *ngFor="let item of dataToShow">
+            <td>{{item.count == 85 ? "Consumer" : "Merchant"}}</td>
+            <td>{{item.category}}</td>
+            <td>{{item.janCount || "-"}}</td>
+            <td>{{item.febCount || "-"}}</td>
+            <td>{{item.marCount || "-"}}</td>
+            <td>{{item.aprCount || "-"}}</td>
+            <td>{{item.mayCount || "-"}}</td>
+            <td>{{item.junCount || "-"}}</td>
+            <td>{{item.julCount || "-"}}</td>
+            <td>{{item.augCount || "-"}}</td>
+            <td>{{item.sepCount || "-"}}</td>
+            <td>{{item.octCount || "-"}}</td>
+            <td>{{item.novCount || "-"}}</td>
+            <td>{{item.decCount || "-"}}</td>
+
+
+        </tr>
     </tbody>
-  </table>
+</table>

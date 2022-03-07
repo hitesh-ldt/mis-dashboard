@@ -4,6 +4,7 @@
   
   table {
     width: 100%;
+    margin-bottom: 50px;
   }
   
   tr.mat-footer-row {
@@ -51,4 +52,22 @@ table{
   text-align: left;
   background-color: #c056a9;
   color: white;
+}
+table.scrolldown tbody {
+              
+  /* Set the height of table body */
+  height: 50px; 
+    
+  /* Set vertical scroll */
+  overflow-y: auto;
+    
+  /* Hide the horizontal scroll */
+  overflow-x: hidden; 
+}
+table.scrolldown {
+  width: 100%;
+    
+  /* border-collapse: collapse; */
+  border-spacing: 0;
+  border: 2px solid black;
 }

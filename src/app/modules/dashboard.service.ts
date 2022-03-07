@@ -17,7 +17,7 @@ getdatamonth(data){
   return this.http.get(url);
 }
 getdatagmv(data){
-  let url=`https://mis.nownowpay.com.ng/mis/getCategoryByYear?startYear=${data.startYear}&endYear=2022`
+  let url=`https://mis.nownowpay.com.ng/mis/getCategoryByYear?startYear=${data.startYear}&entityType=${data.entityType}`
   return this.http.get(url);
 }
 getdatacash(data){

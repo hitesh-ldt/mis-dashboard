@@ -8,9 +8,7 @@ import { DashboardService } from '../dashboard.service';
   styleUrls: ['./balancesheet.component.scss']
 })
 export class BalancesheetComponent implements OnInit {
-  displayedColumns = ['assets','assetCount','equityAndLiabilities','count'
-];
-startYear: any = [{ year: "2012", value: "2012-01-01" },
+  startYear: any = [{ year: "2012", value: "2012-01-01" },
   { year: "2013", value: "2013-01-01" },
   { year: "2014", value: "2014-01-01" },
   { year: "2015", value: "2015-01-01" },
@@ -42,6 +40,8 @@ startYear: any = [{ year: "2012", value: "2012-01-01" },
   datalist: any;
   dataToShow: any = [];
   categoryNamelist: any;
+  categoryAsset: any;
+  categoryCurrent: any;
 
   constructor(private dashboardService: DashboardService) { }
 
@@ -55,17 +55,38 @@ startYear: any = [{ year: "2012", value: "2012-01-01" },
     console.log(req);
     this.dashboardService.getdatabalance(req).subscribe((data: any) => {
       console.log(data)
-  
-        if (data.statusCode == 200) {
-          let res = data.body
-          this.datalist = res
+      this.datalist = data.body
+      console.log(this.datalist[0]['equityAndLiabilities']['shareholdersFund'])
+
+      if (data.statusCode == 200) {
+        let res = data.body
+        this.datalist = res
+        this.categoryAsset = Object.keys(this.datalist[0]);
+        this.categoryCurrent = Object.keys(this.datalist[0].equityAndLiabilities);
+        console.log(this.categoryCurrent);
+        for (let i = 0; i < this.categoryAsset.length; i++) {
+          const element = this.categoryAsset[i];
+          const gmvElement = this.categoryCurrent[i];
+          let objCount = {
+            asset: element,
+            assetCount: this.getMonthValue(element),
+            equity: gmvElement,
+            equitycount: this.getGMVValue(gmvElement),
+          }
+          this.dataToShow.push(objCount);
         }
-  
-  
-        // this.dropdown.reset()
-  
-      })
-  
-    }
-      
+        console.log(this.dataToShow);
+
+      }
+    })
+
+  }
+
+  getMonthValue(category): any {
+    return this.datalist[0][category];
+  }
+  getGMVValue(category): any {
+
+    return this.datalist[0]['equityAndLiabilities'][category];
+  }
 }
