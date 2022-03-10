@@ -46,7 +46,9 @@ export class PostsComponent implements OnInit {
       if (data.statusCode == 200) {
         let res = data.body
         this.datalist = res;
-        this.categoryMonthly = Object.keys(this.datalist[0].categoryCountByMonth);
+        this.categoryMonthly = Object.keys(this.datalist[0]);
+        console.log(this.categoryMonthly);
+        
         for (let i = 0; i < this.categoryMonthly.length; i++) {
           const element = this.categoryMonthly[i];
 
@@ -72,6 +74,6 @@ export class PostsComponent implements OnInit {
     })
   }
   getMonthValue(index, category): any {
-    return this.datalist[index]['categoryCountByMonth'][category];
+    return this.datalist[index][category];
   }
 }

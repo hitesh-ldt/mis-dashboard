@@ -40,13 +40,13 @@ export class MonthgmvComponent implements OnInit {
       'startYear': this.dropdown.controls['startYear'].value,
     }
     console.log(req);
-    this.dashboardService.getdatamonth(req).subscribe((data: any) => {
-
+    this.dashboardService.getdatamonthgmv(req).subscribe((data: any) => {
+    
       console.log(data)
       if (data.statusCode == 200) {
         let res = data.body
         this.datalist = res;
-        this.categoryMonthly = Object.keys(this.datalist[0].categoryGMVByMonth);
+        this.categoryMonthly = Object.keys(this.datalist[0]);
         for (let i = 0; i < this.categoryMonthly.length; i++) {
           const element = this.categoryMonthly[i];
 
@@ -65,6 +65,7 @@ export class MonthgmvComponent implements OnInit {
             octCount: this.getMonthValue(9, element),
             novCount: this.getMonthValue(10, element),
             decCount: this.getMonthValue(11, element),
+            // total:
           }
           this.dataToShow.push(objCount);
         }
@@ -72,6 +73,6 @@ export class MonthgmvComponent implements OnInit {
     })
   }
   getMonthValue(index, category): any {
-    return this.datalist[index]['categoryGMVByMonth'][category];
+    return this.datalist[index][category];
   }
 }

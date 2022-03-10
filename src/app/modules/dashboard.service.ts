@@ -13,8 +13,17 @@ getdata(data){
   return this.http.get(url);
 }
 getdatamonth(data){
-  let url=`https://mis.nownowpay.com.ng/mis/findByEntityTypeAndMonth?startYear=${data.startYear}&entityType=${data.entityType}`
+  let url=`https://mis.nownowpay.com.ng/mis/findByEntityTypeAndMonthCount?startYear=${data.startYear}&entityType=${data.entityType}`
   return this.http.get(url);
+}
+getdatamonthgmv(data){
+  let url=`https://mis.nownowpay.com.ng/mis/findByEntityTypeAndMonthGmv?startYear=${data.startYear}&entityType=${data.entityType}`
+  return this.http.get(url);
+}
+gettotalmonthgmv(data){
+  let url=`https://mis.nownowpay.com.ng/mis/getGmvTotalByMonth?startYear=${data.startYear}`
+  return this.http.get(url);
+
 }
 getdatagmv(data){
   let url=`https://mis.nownowpay.com.ng/mis/getCategoryByYear?startYear=${data.startYear}&entityType=${data.entityType}`
