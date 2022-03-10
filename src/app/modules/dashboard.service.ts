@@ -16,6 +16,11 @@ getdatamonth(data){
   let url=`https://mis.nownowpay.com.ng/mis/findByEntityTypeAndMonthCount?startYear=${data.startYear}&entityType=${data.entityType}`
   return this.http.get(url);
 }
+gettotalmonthcount(data){
+  let url=`https://mis.nownowpay.com.ng/mis/getCountTotalByMonth?startYear=${data.startYear}`
+  return this.http.get(url);
+
+}
 getdatamonthgmv(data){
   let url=`https://mis.nownowpay.com.ng/mis/findByEntityTypeAndMonthGmv?startYear=${data.startYear}&entityType=${data.entityType}`
   return this.http.get(url);

@@ -46,15 +46,11 @@
             <th scope="col">oct</th>
             <th scope="col">nov</th>
             <th scope="col">dec</th>
-            <th scope="col">Total</th>
-
-
-
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let item of dataToShow">
-            <td>{{item.count == 85 ? "Consumer" : "Merchant"}}</td>
+            <td>{{item.count == 85 ? "Consumer" : item.count == 20 ? "Merchant" : "Total"}}</td>
             <td>{{item.category}}</td>
             <td>{{item.janCount || "-"}}</td>
             <td>{{item.febCount || "-"}}</td>
@@ -68,7 +64,8 @@
             <td>{{item.octCount || "-"}}</td>
             <td>{{item.novCount || "-"}}</td>
             <td>{{item.decCount || "-"}}</td>
-        </tr>
 
+
+        </tr>
     </tbody>
 </table>
