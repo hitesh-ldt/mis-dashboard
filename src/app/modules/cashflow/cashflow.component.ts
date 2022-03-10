@@ -9,29 +9,17 @@ import { DashboardService } from '../dashboard.service';
 })
 export class CashflowComponent implements OnInit {
 
-  startYear: any = [{ year: "2012", value: "2012-01-01" },
-  { year: "2013", value: "2013-01-01" },
-  { year: "2014", value: "2014-01-01" },
-  { year: "2015", value: "2015-01-01" },
-  { year: "2016", value: "2016-01-01" },
+  startYear: any = [{ year: "2022", value: "2012-01-01" },
+  { year: "2021", value: "2013-01-01" },
+  { year: "2020", value: "2014-01-01" },
+  { year: "2019", value: "2015-01-01" },
+  { year: "2018", value: "2016-01-01" },
   { year: "2017", value: "2017-01-01" },
-  { year: "2018", value: "2018-01-01" },
-  { year: "2019", value: "2019-01-01" },
-  { year: "2020", value: "2020-01-01" },
-  { year: "2021", value: "2021-01-01" },
-  { year: "2022", value: "2022-01-01" },
-  ];
-  endYear: any = [{ year: "2012", value: "2012-01-01" },
-  { year: "2013", value: "2013-01-01" },
-  { year: "2014", value: "2014-01-01" },
-  { year: "2015", value: "2015-01-01" },
-  { year: "2016", value: "2016-01-01" },
-  { year: "2017", value: "2017-01-01" },
-  { year: "2018", value: "2018-01-01" },
-  { year: "2019", value: "2019-01-01" },
-  { year: "2020", value: "2020-01-01" },
-  { year: "2021", value: "2021-01-01" },
-  { year: "2022", value: "2022-01-01" },
+  { year: "2016", value: "2018-01-01" },
+  { year: "2015", value: "2019-01-01" },
+  { year: "2014", value: "2020-01-01" },
+  { year: "2013", value: "2021-01-01" },
+  { year: "2012", value: "2022-01-01" },
   ];
   dropdown = new FormGroup({
     startYear: new FormControl(""),
@@ -50,7 +38,6 @@ export class CashflowComponent implements OnInit {
   getdata() {
     let req: any = {
       'startYear': this.dropdown.controls['startYear'].value,
-      'endYear': this.dropdown.controls['endYear'].value,
     }
     console.log(req);
     this.dashboardService.getdatacash(req).subscribe((data: any) => {

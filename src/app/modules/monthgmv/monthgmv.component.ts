@@ -3,11 +3,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { DashboardService } from '../dashboard.service';
 
 @Component({
-  selector: 'app-gmvcount',
-  templateUrl: './gmvcount.component.html',
-  styleUrls: ['./gmvcount.component.scss']
+  selector: 'app-monthgmv',
+  templateUrl: './monthgmv.component.html',
+  styleUrls: ['./monthgmv.component.scss']
 })
-export class GmvcountComponent implements OnInit {
+export class MonthgmvComponent implements OnInit {
 
   startYear: any = [{ year: "2022", value: "2012-01-01" },
   { year: "2021", value: "2013-01-01" },
@@ -28,51 +28,50 @@ export class GmvcountComponent implements OnInit {
   datalist: any;
   dataToShow: any = [];
   categoryNamelist: any;
-  categoryMonthly: string[];
-  categoryGMVMonthly: string[];
-  categoryGMV: any;
-  categoryCountMonthly: string[];
-
+  categoryMonthly = [];
   constructor(private dashboardService: DashboardService) { }
-
   ngOnInit() {
   }
-  getdatagmv() {
+
+  getdatamonth() {
     this.dataToShow = [];
     let req: any = {
       'entityType': this.dropdown.controls['entityType'].value,
       'startYear': this.dropdown.controls['startYear'].value,
     }
     console.log(req);
-    this.dashboardService.getdatagmv(req).subscribe((data: any) => {
+    this.dashboardService.getdatamonth(req).subscribe((data: any) => {
 
       console.log(data)
       if (data.statusCode == 200) {
         let res = data.body
         this.datalist = res;
-        this.categoryCountMonthly = Object.keys(this.datalist.categoryCount);
-        this.categoryGMVMonthly = Object.keys(this.datalist.categoryGMV);
-        for (let i = 0; i < this.categoryCountMonthly.length; i++) {
-          const element = this.categoryCountMonthly[i];
-          const gmvElement = this.categoryGMVMonthly[i];
+        this.categoryMonthly = Object.keys(this.datalist[0].categoryGMVByMonth);
+        for (let i = 0; i < this.categoryMonthly.length; i++) {
+          const element = this.categoryMonthly[i];
+
           let objCount = {
-            type: this.dropdown.controls['entityType'].value,
+            count: this.dropdown.controls['entityType'].value,
             category: element,
-            count: this.getMonthValue(element),
-            gmvCount: this.getGMVValue(gmvElement),
+            janCount: this.getMonthValue(0, element),
+            febCount: this.getMonthValue(1, element),
+            marCount: this.getMonthValue(2, element),
+            aprCount: this.getMonthValue(3, element),
+            mayCount: this.getMonthValue(4, element),
+            junCount: this.getMonthValue(5, element),
+            julCount: this.getMonthValue(6, element),
+            augCount: this.getMonthValue(7, element),
+            sepCount: this.getMonthValue(8, element),
+            octCount: this.getMonthValue(9, element),
+            novCount: this.getMonthValue(10, element),
+            decCount: this.getMonthValue(11, element),
           }
           this.dataToShow.push(objCount);
         }
-        console.log(this.dataToShow);
-
       }
     })
-
   }
-  getMonthValue(category): any {
-    return this.datalist['categoryCount'][category];
-  }
-  getGMVValue(category): any {
-    return this.datalist['categoryGMV'][category];
+  getMonthValue(index, category): any {
+    return this.datalist[index]['categoryGMVByMonth'][category];
   }
 }

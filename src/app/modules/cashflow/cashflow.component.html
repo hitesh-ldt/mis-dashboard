@@ -3,21 +3,21 @@
   <form [formGroup]="dropdown" (ngSubmit)="getdata()">
 
     <mat-form-field style="margin-left: 10px;">
-      <mat-label for="name">StartYear </mat-label>
+      <mat-label for="name">SelectYear </mat-label>
       <mat-select class="form-control" formControlName="startYear" required>
         <mat-option value="" disabled> select Date </mat-option>
         <mat-option *ngFor="let item of startYear" value="{{item.year}}"> {{item.year}}</mat-option>
 
       </mat-select>
     </mat-form-field>
-    <mat-form-field style="margin-left: 10px;">
+    <!-- <mat-form-field style="margin-left: 10px;">
       <mat-label for="name">EndYear </mat-label>
       <mat-select class="form-control" formControlName="endYear" required>
         <mat-option value="" disabled> select Date </mat-option>
         <mat-option *ngFor="let item of endYear" value="{{item.year}}"> {{item.year}}</mat-option>
 
       </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
     <button mat-raised-button color="primary" class="submit-btn" type="submit" style="margin-left: 10px;">
       submit</button>
 
@@ -26,7 +26,7 @@
 <mat-toolbar class="toolbar" color="primary">
   <span style="margin-left: 40%;"> Cash Flow Statement </span>
 </mat-toolbar>
-<table id="customers" class="table table-striped">
+<!-- <table id="customers" class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Particulars</th>
@@ -40,4 +40,113 @@
       <td>{{item.count}}</td>
     </tr>
   </tbody>
+</table> -->
+<table id="customers" class="table table-striped">
+  <tr *ngFor="let item of datalist">
+    <th>casFlowStatementID</th>
+    <td>{{item.casFlowStatementID}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>cashFlowStatementYear</th>
+    <td>{{item.cashFlowStatementYear}}</td>
+  </tr>
+ 
+  <tr *ngFor="let item of datalist">
+    <th>cashFlowsFromOperatingActivities</th>
+    <td>:</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">profitAndLossBeforeTaxation</th>
+    <td>{{item.cashFlowsFromOperatingActivities.profitAndLossBeforeTaxation}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>adjustmentsFor</th>
+    <td>:</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">depreciationAndAmortization</th>
+    <td>{{item.adjustmentsFor.depreciationAndAmortization}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">interestExpense</th>
+    <td>{{item.adjustmentsFor.interestExpense}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>workingCapitalChanges</th>
+    <td>:</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">increaseDecreaseInCurrentAssets</th>
+    <td>{{item.workingCapitalChanges.increaseDecreaseInCurrentAssets}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">increaseDecreaseInCurrentLiabilities</th>
+    <td>{{item.workingCapitalChanges.increaseDecreaseInCurrentLiabilities}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>cashGeneratedFromOperations</th>
+    <td>{{item.cashGeneratedFromOperations}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>incomeTaxesPaid</th>
+    <td>{{item.incomeTaxesPaid}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>netCashFromOperatingActivities</th>
+    <td>{{item.netCashFromOperatingActivities}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>cashFlowFromInvestingActivities</th>
+    <td>:</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">purchaseOfPropertyPlantAndEquipment</th>
+    <td>{{item.cashFlowFromInvestingActivities.purchaseOfPropertyPlantAndEquipment}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">purchaseOfIntangibleAssets</th>
+    <td>{{item.cashFlowFromInvestingActivities.purchaseOfIntangibleAssets}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">acquisitionOfInvestments</th>
+    <td>{{item.cashFlowFromInvestingActivities.acquisitionOfInvestments}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>netCashUsedInInvestingActivities</th>
+    <td>{{item.netCashUsedInInvestingActivities}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>cashFlowsFromFinancingActivities</th>
+    <td>:</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">proceedsFromIssueOfShareCapital</th>
+    <td>{{item.cashFlowsFromFinancingActivities.proceedsFromIssueOfShareCapital}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">interestExpenses</th>
+    <td>{{item.cashFlowsFromFinancingActivities.interestExpenses}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">paymentOfLongTermBorrowings</th>
+    <td>{{item.cashFlowsFromFinancingActivities.paymentOfLongTermBorrowings}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>netCashUsedInFinancingActivities</th>
+    <td>{{item.netCashUsedInFinancingActivities}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>netIncreaseInCashAndCashEquivalents</th>
+    <td>{{item.netIncreaseInCashAndCashEquivalents}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>cashAndCashEquivalentsAtBeginningOfPeriod</th>
+    <td>{{item.cashAndCashEquivalentsAtBeginningOfPeriod}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>cashAndCashEquivalentsAtEndOfPeriod</th>
+    <td>{{item.cashAndCashEquivalentsAtEndOfPeriod}}</td>
+  </tr>
+
+ 
 </table>

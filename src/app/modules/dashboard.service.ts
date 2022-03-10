@@ -21,15 +21,15 @@ getdatagmv(data){
   return this.http.get(url);
 }
 getdatacash(data){
-  let url=`https://mis.nownowpay.com.ng/mis/getCashFlowStatementByYear?startYear=${data.startYear}&endYear=${data.endYear}`
+  let url=`https://mis.nownowpay.com.ng/mis/getCashFlowStatementByYear?startYear=${data.startYear}`
   return this.http.get(url);
 }
 getdataincome(data){
-  let url=`https://mis.nownowpay.com.ng/mis/getIncomeStatementServiceByYear?startYear=${data.startYear}&endYear=${data.endYear}`
+  let url=`https://mis.nownowpay.com.ng/mis/getIncomeStatementServiceByYear?startYear=${data.startYear}`
   return this.http.get(url);
 }
 getdatabalance(data){
-  let url=`https://mis.nownowpay.com.ng/mis/getBalanceSheetByYear?startYear=${data.startYear}&endYear=${data.endYear}`
+  let url=`https://mis.nownowpay.com.ng/mis/getBalanceSheetByYear?startYear=${data.startYear}`
   return this.http.get(url);
 }
   bigChart() {

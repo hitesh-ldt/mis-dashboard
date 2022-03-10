@@ -7,6 +7,7 @@ import { DashboardComponent } from './modules/dashboard/dashboard.component';
 import { GmvcountComponent } from './modules/gmvcount/gmvcount.component';
 import { IncomesheetComponent } from './modules/incomesheet/incomesheet.component';
 import { LoginComponent } from './modules/login/login.component';
+import { MonthgmvComponent } from './modules/monthgmv/monthgmv.component';
 import { PostsComponent } from './modules/posts/posts.component';
 
 const routes: Routes = [{
@@ -18,6 +19,10 @@ const routes: Routes = [{
   }, {
     path: 'posts',
     component: PostsComponent
+  },
+  {
+    path: 'monthgmv',
+    component: MonthgmvComponent
   },
   {
     path: 'gmv',
@@ -36,7 +41,7 @@ const routes: Routes = [{
   }
 ]
 },
-{path:'',component:LoginComponent},
+{path:'',component:DefaultComponent},
 {path:'login',component:LoginComponent},
 
 ];

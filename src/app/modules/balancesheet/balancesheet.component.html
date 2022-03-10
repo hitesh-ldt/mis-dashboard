@@ -3,21 +3,21 @@
   <form [formGroup]="dropdown" (ngSubmit)="getdata()">
 
     <mat-form-field style="margin-left: 10px;">
-      <mat-label for="name">StartYear </mat-label>
+      <mat-label for="name">SelectYear </mat-label>
       <mat-select class="form-control" formControlName="startYear" required>
         <mat-option value="" disabled> select Date </mat-option>
         <mat-option *ngFor="let item of startYear" value="{{item.year}}"> {{item.year}}</mat-option>
 
       </mat-select>
     </mat-form-field>
-    <mat-form-field style="margin-left: 10px;">
+    <!-- <mat-form-field style="margin-left: 10px;">
       <mat-label for="name">EndYear </mat-label>
       <mat-select class="form-control" formControlName="endYear" required>
         <mat-option value="" disabled> select Date </mat-option>
         <mat-option *ngFor="let item of endYear" value="{{item.year}}"> {{item.year}}</mat-option>
 
       </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
     <button mat-raised-button color="primary" class="submit-btn" type="submit" style="margin-left: 10px;">
       submit</button>
 
@@ -26,7 +26,7 @@
 <mat-toolbar class="toolbar" color="primary">
   <span style="margin-left: 40%;">BalanceSheet</span>
 </mat-toolbar>
-<table id="customers" class="table table-striped">
+<!-- <table id="customers" class="table table-striped">
   <thead>
     <tr>
       <th scope="col">asset</th>
@@ -44,4 +44,126 @@
       <td>{{item.equitycount}}</td>
     </tr>
   </tbody>
+</table> -->
+<table id="customers" class="table table-striped">
+  
+  <tr *ngFor="let item of datalist">
+    <th>balanceSheetId</th>
+    <td>{{item.balanceSheetId}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>balanceSheetYear</th>
+    <td>{{item.balanceSheetYear}}</td>
+  </tr> 
+  <tr *ngFor="let item of datalist">
+    <th>tangibleAsset</th>
+    <td>{{item.tangibleAsset}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>intangibleAssets</th>
+    <td>{{item.intangibleAssets}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>accumulatedDepreciation</th>
+    <td>{{item.accumulatedDepreciation}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>investments</th>
+    <td>{{item.investments}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>currentAssets</th>
+    <td>:</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">closingStock</th>
+    <td>{{item.currentAssets.closingStock}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">loansAndAdvancesAsset</th>
+    <td>{{item.currentAssets.loansAndAdvancesAsset}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">sundryDebtors</th>
+    <td>{{item.currentAssets.sundryDebtors}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">cashAndBank</th>
+    <td>{{item.currentAssets.cashAndBank}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">others</th>
+    <td>{{item.currentAssets.others}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>otherAssets</th>
+    <td>{{item.otherAssets}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>totalAsset</th>
+    <td>{{item.totalAsset}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>equityAndLiabilities</th>
+    <td>:</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">shareholdersFund</th>
+    <td>shareholdersFund:</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: grey;">reservesAndSurplus</th>
+    <td>{{item.equityAndLiabilities.shareholdersFund.reservesAndSurplus}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: grey;">shareCapital</th>
+    <td>{{item.equityAndLiabilities.shareholdersFund.shareCapital}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">profitAndLossAc</th>
+    <td>{{item.equityAndLiabilities.profitAndLossAc}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">loansLiability</th>
+    <td>loansLiability:</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: grey;">bankTermLoan</th>
+    <td>{{item.equityAndLiabilities.loansLiability.bankTermLoan}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: grey;">loansLiabilityOthers</th>
+    <td>{{item.equityAndLiabilities.loansLiability.loansLiabilityOthers}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">currentLiabilities</th>
+    <td>currentLiabilities:</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: grey;">statutoryLiabilities</th>
+    <td>{{item.equityAndLiabilities.currentLiabilities.statutoryLiabilities}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: grey;">provisions</th>
+    <td>{{item.equityAndLiabilities.currentLiabilities.provisions}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: grey;">sundryCreditors</th>
+    <td>{{item.equityAndLiabilities.currentLiabilities.sundryCreditors}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: grey;">currentLiabilitiesOthers</th>
+    <td>{{item.equityAndLiabilities.currentLiabilities.currentLiabilitiesOthers}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">otherLiabilities</th>
+    <td>{{item.equityAndLiabilities.otherLiabilities}}</td>
+  </tr>
+ 
+  <tr *ngFor="let item of datalist">
+    <th>totalEquitiesAndLiabilities</th>
+    <td>{{item.totalEquitiesAndLiabilities}}</td>
+  </tr>
+
+
 </table>

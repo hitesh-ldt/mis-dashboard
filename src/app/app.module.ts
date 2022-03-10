@@ -17,6 +17,7 @@ import { GmvcountComponent } from './modules/gmvcount/gmvcount.component';
 import { CashflowComponent } from './modules/cashflow/cashflow.component';
 import { IncomesheetComponent } from './modules/incomesheet/incomesheet.component';
 import { BalancesheetComponent } from './modules/balancesheet/balancesheet.component';
+import { MonthgmvComponent } from './modules/monthgmv/monthgmv.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { BalancesheetComponent } from './modules/balancesheet/balancesheet.compo
     CashflowComponent,
     IncomesheetComponent,
     BalancesheetComponent,
+    MonthgmvComponent,
     
     
   ],

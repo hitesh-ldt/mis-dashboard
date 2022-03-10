@@ -3,21 +3,21 @@
   <form [formGroup]="dropdown" (ngSubmit)="getdata()">
 
     <mat-form-field style="margin-left: 10px;">
-      <mat-label for="name">StartYear </mat-label>
+      <mat-label for="name">SelectYear </mat-label>
       <mat-select class="form-control" formControlName="startYear" required>
         <mat-option value="" disabled> select Date </mat-option>
         <mat-option *ngFor="let item of startYear" value="{{item.year}}"> {{item.year}}</mat-option>
 
       </mat-select>
     </mat-form-field>
-    <mat-form-field style="margin-left: 10px;">
+    <!-- <mat-form-field style="margin-left: 10px;">
       <mat-label for="name">EndYear </mat-label>
       <mat-select class="form-control" formControlName="endYear" required>
         <mat-option value="" disabled> select Date </mat-option>
         <mat-option *ngFor="let item of endYear" value="{{item.year}}"> {{item.year}}</mat-option>
 
       </mat-select>
-    </mat-form-field>
+    </mat-form-field> -->
     <button mat-raised-button color="primary" class="submit-btn" type="submit" style="margin-left: 10px;">
       submit</button>
 
@@ -26,7 +26,7 @@
 <mat-toolbar class="toolbar" color="primary">
   <span style="margin-left: 40%;">IncomeSheet </span>
 </mat-toolbar>
-<table id="customers" class="table table-striped">
+<!-- <table id="customers" class="table table-striped">
   <thead>
     <tr>
       <th scope="col">Particulars</th>
@@ -40,4 +40,99 @@
       <td>{{item.count}}</td>
     </tr>
   </tbody>
+</table> -->
+<table id="customers" class="table table-striped">
+  <tr *ngFor="let item of datalist">
+    <th>incomeStatemenetId</th>
+    <td>{{item.incomeStatemenetId}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>incomeStatementYear</th>
+    <td>{{item.incomeStatementYear}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>revenue</th>
+    <td>{{item.revenue}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>grossRevenue</th>
+    <td>{{item.grossRevenue}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>directExpenses</th>
+    <td>{{item.directExpenses}}</td>
+  </tr>
+   
+  <tr *ngFor="let item of datalist">
+    <th>netRevenue</th>
+    <td>{{item.netRevenue}}</td>
+  </tr>
+ 
+  <tr *ngFor="let item of datalist">
+    <th>indirectExpenses</th>
+    <td>:</td>
+  </tr>
+  <tr  *ngFor="let item of datalist">
+    <th style="background-color: black;" >technologiesCost</th>
+    <td>{{item.indirectExpenses.technologiesCost}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">employeeCosts</th>
+    <td>{{item.indirectExpenses.employeeCosts}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;" >rent</th>
+    <td>{{item.indirectExpenses.rent}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">marketingAndPublicityExpenses</th>
+    <td>{{item.indirectExpenses.marketingAndPublicityExpenses}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">indirectTaxesVAT</th>
+    <td>{{item.indirectExpenses.indirectTaxesVAT}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">internationalOfficeExpenses</th>
+    <td>{{item.indirectExpenses.internationalOfficeExpenses}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">growthTactionExpenses</th>
+    <td>{{item.indirectExpenses.growthTactionExpenses}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th style="background-color: black;">administrationAndOtherExp</th>
+    <td>{{item.indirectExpenses.administrationAndOtherExp}}</td>
+  </tr>
+  
+ 
+  <tr *ngFor="let item of datalist">
+    <th>Ebidta</th>
+    <td>{{item.ebidta}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>ebidta%</th>
+    <td>{{item.ebidtaPercentage}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>financeCost</th>
+    <td>{{item.financeCost}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>amortizationAndDepreciation</th>
+    <td>{{item.amortizationAndDepreciation}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>ebt</th>
+    <td>{{item.ebt}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>corporateTax</th>
+    <td>{{item.corporateTax}}</td>
+  </tr>
+  <tr *ngFor="let item of datalist">
+    <th>eat</th>
+    <td>{{item.eat}}</td>
+  </tr>
+
 </table>
